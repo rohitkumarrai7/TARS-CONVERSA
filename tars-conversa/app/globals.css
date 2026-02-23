@@ -124,3 +124,108 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Tars-Conversa Custom Animations ── */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes typingDot {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.75);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes messageFlash {
+  0% {
+    background-color: rgb(253 224 71 / 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.2s ease-out forwards;
+}
+
+.animate-message-flash {
+  animation: messageFlash 1.5s ease-out forwards;
+}
+
+.typing-dot:nth-child(1) {
+  animation: typingDot 1.2s ease-in-out infinite 0s;
+}
+.typing-dot:nth-child(2) {
+  animation: typingDot 1.2s ease-in-out infinite 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation: typingDot 1.2s ease-in-out infinite 0.4s;
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    #1e1b4b,
+    #312e81,
+    #1e3a5f,
+    #0f172a
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Smooth scrollbar for chat area */
+.chat-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: rgb(99 102 241 / 0.3);
+  border-radius: 2px;
+}
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(99 102 241 / 0.6);
+}
+
+/* Text selection color */
+::selection {
+  background: rgb(99 102 241 / 0.3);
+  color: inherit;
+}
