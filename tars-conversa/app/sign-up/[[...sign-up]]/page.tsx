@@ -2,7 +2,7 @@ import { SignUp } from "@clerk/nextjs";
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-950 via-zinc-900 to-zinc-950 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-indigo-950 via-zinc-900 to-zinc-950 px-4">
       {/* Logo */}
       <div className="flex items-center gap-3 mb-8">
         <div className="w-12 h-12 bg-indigo-500 rounded-xl flex items-center justify-center">
