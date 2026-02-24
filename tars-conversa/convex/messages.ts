@@ -293,3 +293,19 @@ export const searchMessagesInConversation = query({
     return enriched;
   },
 });
+
+/**
+ * Returns all read receipts for a conversation.
+ * Used to show ✓✓ (read) indicators on own messages.
+ */
+export const getReadReceipts = query({
+  args: { conversationId: v.id("conversations") },
+  handler: async (ctx, args) => {
+    return await ctx.db
+      .query("readReceipts")
+      .withIndex("by_conversationId", (q) =>
+        q.eq("conversationId", args.conversationId)
+      )
+      .collect();
+  },
+});

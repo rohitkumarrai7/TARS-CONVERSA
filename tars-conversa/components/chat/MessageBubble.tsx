@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "@/components/shared/UserAvatar";
 import ReactionPicker from "./ReactionPicker";
+import ReadReceipt from "./ReadReceipt";
 import { formatMessageTime } from "@/lib/formatTimestamp";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -40,6 +41,7 @@ interface MessageBubbleProps {
   isGroup: boolean;
   currentUserClerkId: string;
   isHighlighted: boolean;
+  isRead: boolean;
   onReply: () => void;
   onDelete: () => Promise<void>;
   onReact: (emoji: string) => Promise<void>;
@@ -52,6 +54,7 @@ export default function MessageBubble({
   isGroup,
   currentUserClerkId,
   isHighlighted,
+  isRead,
   onReply,
   onDelete,
   onReact,
@@ -181,6 +184,7 @@ export default function MessageBubble({
           {message.isPinned && (
             <span className="ml-1 text-indigo-400">· 📌</span>
           )}
+          {isOwn && <ReadReceipt isRead={isRead} className="ml-1" />}
         </span>
 
         {/* Reactions bar */}

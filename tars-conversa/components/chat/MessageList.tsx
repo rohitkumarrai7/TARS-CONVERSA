@@ -30,6 +30,7 @@ export default function MessageList({
   highlightMessageId,
 }: MessageListProps) {
   const messages = useQuery(api.messages.getMessages, { conversationId });
+  const readReceipts = useQuery(api.messages.getReadReceipts, { conversationId });
 
   const markRead = useMutation(api.messages.markMessagesAsRead);
   const addReaction = useMutation(api.messages.addReaction);
@@ -83,7 +84,14 @@ export default function MessageList({
             </div>
 
             {/* Messages for this date */}
-            {msgs.map((message) => (
+            {msgs.map((message) => {
+              // isRead: another user has read up to or past this message's timestamp
+              const isRead = (readReceipts ?? []).some(
+                (r) =>
+                  r.userId !== currentUserClerkId &&
+                  r.lastReadAt >= message.createdAt
+              );
+              return (
               <MessageBubble
                 key={message._id}
                 message={message}
@@ -91,6 +99,7 @@ export default function MessageList({
                 isGroup={isGroup}
                 currentUserClerkId={currentUserClerkId}
                 isHighlighted={message._id === highlightMessageId}
+                isRead={isRead}
                 onReply={() => onReplyTo(message)}
                 onDelete={async () => {
                   try {
@@ -125,7 +134,8 @@ export default function MessageList({
                   }
                 }}
               />
-            ))}
+              );
+            })}
           </div>
         ))}
 
