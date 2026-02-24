@@ -102,14 +102,10 @@ export default function MessageList({
                 isRead={isRead}
                 onReply={() => onReplyTo(message)}
                 onDelete={async () => {
-                  try {
-                    await deleteMessage({
-                      messageId: message._id,
-                      requestingUserId: currentUserClerkId,
-                    });
-                  } catch {
-                    // handled in MessageBubble
-                  }
+                  await deleteMessage({
+                    messageId: message._id,
+                    requestingUserId: currentUserClerkId,
+                  });
                 }}
                 onReact={async (emoji) => {
                   try {
