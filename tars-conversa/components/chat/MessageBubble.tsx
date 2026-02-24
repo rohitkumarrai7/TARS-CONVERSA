@@ -60,7 +60,6 @@ export default function MessageBubble({
   onReact,
   onPin,
 }: MessageBubbleProps) {
-  const [isHovered, setIsHovered] = useState(false);
   const [showReactionPicker, setShowReactionPicker] = useState(false);
 
   const handleDelete = async () => {
@@ -96,11 +95,7 @@ export default function MessageBubble({
         isOwn ? "flex-row-reverse" : "flex-row",
         isHighlighted && "animate-message-flash rounded-lg"
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setShowReactionPicker(false);
-      }}
+      onMouseLeave={() => setShowReactionPicker(false)}
     >
       {/* Avatar — other user only */}
       {!isOwn && (
@@ -220,7 +215,7 @@ export default function MessageBubble({
       </div>
 
       {/* Hover action buttons */}
-      {isHovered && !message.deleted && (
+      {!message.deleted && (
         <div
           className={cn(
             "flex items-center gap-0.5 self-center",
