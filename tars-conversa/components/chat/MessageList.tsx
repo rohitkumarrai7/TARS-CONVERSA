@@ -77,7 +77,7 @@ export default function MessageList({
             {/* Date divider */}
             <div className="flex items-center gap-3 my-4">
               <div className="flex-1 h-px bg-border" />
-              <span className="text-xs text-muted-foreground px-2 flex-shrink-0">
+              <span className="text-xs text-muted-foreground px-2 shrink-0">
                 {date}
               </span>
               <div className="flex-1 h-px bg-border" />

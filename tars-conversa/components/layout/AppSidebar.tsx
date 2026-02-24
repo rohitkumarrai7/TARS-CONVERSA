@@ -40,10 +40,10 @@ export default function AppSidebar() {
       )}
     >
       {/* ── Header ── */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border flex-shrink-0">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center flex-shrink-0">
+          <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center shrink-0">
             <span className="text-white font-bold text-sm">TC</span>
           </div>
           <span className="font-bold text-sm tracking-tight">
@@ -55,7 +55,7 @@ export default function AppSidebar() {
       </div>
 
       {/* ── Current User Row ── */}
-      <div className="flex items-center gap-2.5 px-4 py-3 border-b border-border flex-shrink-0">
+      <div className="flex items-center gap-2.5 px-4 py-3 border-b border-border shrink-0">
         <UserAvatar
           imageUrl={user.imageUrl}
           name={user.fullName ?? "User"}
@@ -74,14 +74,14 @@ export default function AppSidebar() {
           size="icon"
           aria-label="Sign out"
           onClick={() => signOut()}
-          className="w-8 h-8 text-muted-foreground hover:text-foreground flex-shrink-0"
+          className="w-8 h-8 text-muted-foreground hover:text-foreground shrink-0"
         >
           <LogOut className="w-4 h-4" />
         </Button>
       </div>
 
       {/* ── Action Buttons ── */}
-      <div className="flex gap-2 px-3 py-2.5 border-b border-border flex-shrink-0">
+      <div className="flex gap-2 px-3 py-2.5 border-b border-border shrink-0">
         <Button
           onClick={() => setIsSearchOpen(true)}
           className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white h-8 text-xs gap-1.5"
@@ -102,7 +102,7 @@ export default function AppSidebar() {
       </div>
 
       {/* ── Conversation Search ── */}
-      <div className="px-3 py-2 border-b border-border flex-shrink-0">
+      <div className="px-3 py-2 border-b border-border shrink-0">
         <div className="relative">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
           <Input

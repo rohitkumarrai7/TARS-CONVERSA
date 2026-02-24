@@ -48,7 +48,7 @@ export default function ChatHeader({
 
   if (!conversation) {
     return (
-      <div className="h-16 border-b border-border flex items-center px-4 flex-shrink-0 animate-pulse">
+      <div className="h-16 border-b border-border flex items-center px-4 shrink-0 animate-pulse">
         <div className="w-8 h-8 rounded-full bg-muted mr-3" />
         <div className="space-y-1.5">
           <div className="w-24 h-3 bg-muted rounded" />
@@ -101,7 +101,7 @@ export default function ChatHeader({
   };
 
   return (
-    <div className="flex flex-col flex-shrink-0 border-b border-border">
+    <div className="flex flex-col shrink-0 border-b border-border">
       {/* Main header row */}
       <div className="h-16 flex items-center justify-between px-4 gap-3">
         {/* Left: back + avatar + name */}
@@ -112,7 +112,7 @@ export default function ChatHeader({
             size="icon"
             aria-label="Go back"
             onClick={() => router.back()}
-            className="md:hidden w-8 h-8 flex-shrink-0 -ml-1"
+            className="md:hidden w-8 h-8 shrink-0 -ml-1"
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
@@ -127,7 +127,7 @@ export default function ChatHeader({
               isOnline={isOnline}
             />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center shrink-0">
               <span className="text-indigo-400 font-bold text-sm">
                 {displayName.slice(0, 2).toUpperCase()}
               </span>
@@ -154,7 +154,7 @@ export default function ChatHeader({
 
         {/* Right: action buttons */}
         <TooltipProvider>
-          <div className="flex items-center gap-1 flex-shrink-0">
+          <div className="flex items-center gap-1 shrink-0">
             {/* Search toggle */}
             <Tooltip>
               <TooltipTrigger asChild>
@@ -225,7 +225,7 @@ export default function ChatHeader({
       {/* Pinned message bar */}
       {pinnedMessage && (
         <div className="flex items-center gap-3 px-4 py-2 bg-indigo-500/5 border-t border-indigo-500/20 animate-fade-in">
-          <Pin className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+          <Pin className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
           <div className="flex-1 min-w-0">
             <p className="text-xs text-indigo-400 font-medium">
               Pinned message
@@ -242,7 +242,7 @@ export default function ChatHeader({
             size="icon"
             aria-label="Unpin message"
             onClick={handleUnpin}
-            className="w-6 h-6 flex-shrink-0"
+            className="w-6 h-6 shrink-0"
           >
             <X className="w-3 h-3" />
           </Button>
