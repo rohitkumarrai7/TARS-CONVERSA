@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import AppSidebar from "@/components/layout/AppSidebar";
 import ConnectionStatus from "@/components/shared/ConnectionStatus";
 import { cn } from "@/lib/utils";
@@ -11,7 +11,8 @@ export default function ChatLayout({
   children: React.ReactNode;
 }) {
   const params = useParams();
-  const hasConversation = !!params?.conversationId;
+  const pathname = usePathname();
+  const hasConversation = !!params?.conversationId || pathname === "/chat/ai";
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">
